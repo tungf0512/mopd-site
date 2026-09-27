@@ -1,0 +1,7 @@
+# Dat file nay tai /etc/cloudflared/config.yml (khi chay cloudflared nhu mot service)
+tunnel: <TUNNEL-UUID>
+credentials-file: /home/YOUR_USER/.cloudflared/<TUNNEL-UUID>.json
+ingress:
+  - hostname: learn.ten-mien-cua-ban.com
+    service: http://localhost:8000
+  - service: http_status:404

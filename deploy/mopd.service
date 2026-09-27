@@ -1,0 +1,17 @@
+[Unit]
+Description=MOPD course (dang nhap va luu tien do hoc tap)
+After=network.target
+
+[Service]
+# Thay YOUR_USER va duong dan cho dung voi may cua ban
+User=YOUR_USER
+WorkingDirectory=/opt/mopd-site
+Environment=MOPD_ALLOW_REGISTER=0
+Environment=MOPD_COOKIE_SECURE=1
+Environment=MOPD_BEHIND_CLOUDFLARE=1
+ExecStart=/opt/mopd-site/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 server:app
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
